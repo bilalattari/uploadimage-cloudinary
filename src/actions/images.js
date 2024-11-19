@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 
 export async function addImageToDB(obj) {
-  let uploaded = await fetch(`http://localhost:3000/api/images`, {
+  let uploaded = await fetch(`${process.env.BASE_URL}/api/images`, {
     method: "POST",
     body: JSON.stringify(obj),
   });
@@ -18,6 +18,6 @@ export async function addImageToDB(obj) {
 }
 
 export async function getImages() {
-  let uploaded = await fetch(`http://localhost:3000/api/images`);
+  let uploaded = await fetch(`${process.env.BASE_URL}/api/images`);
   return await uploaded.json();
 }
